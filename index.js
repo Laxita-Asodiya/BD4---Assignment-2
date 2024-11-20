@@ -96,74 +96,74 @@ async function fetchPlayersById(id) {
 
 app.get('/games', async (req, res) => {
   let result = await fetchAllGames();
-  res.status(200).json(result);
+  res.status(200).json({ games: result });
 });
 
 app.get('/games/details/:gameId', async (req, res) => {
   let gameId = parseInt(req.params.gameId);
   let result = await fetchByGameId(gameId);
-  res.status(200).json(result);
+  res.status(200).json({ games: result });
 });
 
 app.get('/games/genre/:genre', async (req, res) => {
   let genre = req.params.genre;
   let result = await fetchByGenre(genre);
-  res.status(200).json(result);
+  res.status(200).json({ games: result });
 });
 
 app.get('/players', async (req, res) => {
   let result = await fetchAllPlayers();
-  res.status(200).json(result);
+  res.status(200).json({ players: result });
 });
 
 app.get('/games/platform/:platform', async (req, res) => {
   let platform = req.params.platform;
   let result = await fetchByPlatform(platform);
-  res.status(200).json(result);
+  res.status(200).json({ games: result });
 });
 
 app.get('/players/platform/:platform', async (req, res) => {
   let platform = req.params.platform;
   let result = await fetchPlayersByPlatform(platform);
-  res.status(200).json(result);
+  res.status(200).json({ players: result });
 });
 
 app.get('/games/sort-by-rating', async (req, res) => {
   let result = await sortByRating();
-  res.status(200).json(result);
+  res.status(200).json({ games: result });
 });
 
 app.get('/players/sort-by-rating', async (req, res) => {
   let result = await sortPlayersByRating();
-  res.status(200).json(result);
+  res.status(200).json({ players: result });
 });
 
 app.get('/tournaments', async (req, res) => {
   let result = await fetchAllTournaments();
-  res.status(200).json(result);
+  res.status(200).json({ tournaments: result });
 });
 
 app.get('/tournaments/details/:id', async (req, res) => {
   let id = parseInt(req.params.id);
   let result = await fetchTournamentById(id);
-  res.status(200).json(result);
+  res.status(200).json({ tournaments: result });
 });
 
 app.get('/players/details/:id', async (req, res) => {
   let id = parseInt(req.params.id);
   let result = await fetchPlayersById(id);
-  res.status(200).json(result);
+  res.status(200).json({ tournaments: result });
 });
 
 app.get('/tournaments/game/:id', async (req, res) => {
   let gameId = parseInt(req.params.id);
   let result = await fetchTournamentByGameId(gameId);
-  res.status(200).json(result);
+  res.status(200).json({ tournaments: result });
 });
 
 app.get('/tournaments/sort-by-prize-pool', async (req, res) => {
   let result = await fetchTournamentByPool();
-  res.status(200).json(result);
+  res.status(200).json({ tournaments: result });
 });
 
 app.listen(port, () => {
